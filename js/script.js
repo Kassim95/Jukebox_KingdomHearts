@@ -205,10 +205,10 @@ $(document).ready(function(){
     	$(".box").css({ opacity: "0.4"} );
 		});
 
-
+    $(".box").draggable();
 		// $('.options').hide();
 
 		// $('.play-theme').click(function(){
-		// 	new Audio("musics/"$('theme').val().toString());
+		// 	new Audio($('.theme').val().toString());
 		// });
 });
