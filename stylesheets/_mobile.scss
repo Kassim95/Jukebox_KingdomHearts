@@ -1,0 +1,35 @@
+@media (max-width: 640px){
+	body{
+		margin-left: 60px;
+	}
+	.box{
+		position: fixed;
+		float: left;
+		margin: 0px;
+		margin-top: 80px;
+	}
+	p{
+		margin-right: 250px;
+		margin-top: 380px;
+		float: left;
+		position: fixed;
+	}
+	.title1, .title2, .title3, .title4, .title5, .title6, .title7 {
+		margin-top: 15px;
+		opacity: 0.6;
+		font-size: 20px;
+		position: fixed;
+	}
+	.playlist{
+		margin-left: 100px;
+		opacity: 1;
+		font-size: 30px;
+		position: fixed;
+	}
+	.title{
+		float: left;
+		position: fixed;
+		margin: 0px;
+		margin-top: 20px;
+	}
+}

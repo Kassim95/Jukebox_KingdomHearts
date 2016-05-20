@@ -1,0 +1,10 @@
+
+$text-color: white;
+$text-font: cursive;
+
+body{
+	background: url(../images/background.jpg); 
+	/*background-size: 1100px 1300px;*/
+	color: $text-color;
+	font-family: $text-font;
+}
