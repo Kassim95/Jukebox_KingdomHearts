@@ -1,15 +1,13 @@
-@mixin opacity($opacity){
-	opacity: $opacity;
-}
+
 
 @media (max-width: 1170px) and (min-width: 590px){
 	.box{
 		position: fixed;
-		margin-top: 110px;
+		margin-top: 10px;
 	}
-		p{
+	p{
 		margin-right: 250px;
-		margin-top: 380px;
+		margin-top: 315px;
 		float: right;
 	}
 	.title1, .title2, .title3, .title4, .title5, .title6, .title7 {

@@ -8,3 +8,18 @@ body{
 	color: $text-color;
 	font-family: $text-font;
 }
+
+.theme, .play-theme, .add-song, .adding{
+	font-size: 20px;
+	border: solid; 
+	color: white;
+	background: black;
+	opacity: 0.4;
+	border-radius: 10px;
+	padding-left: 5px;
+	text-align: center;
+	margin-top: 2px;
+
+}
+
+

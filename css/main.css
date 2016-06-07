@@ -5,6 +5,17 @@ body {
   color: white;
   font-family: cursive; }
 
+.theme, .play-theme, .add-song, .adding {
+  font-size: 20px;
+  border: solid;
+  color: white;
+  background: black;
+  opacity: 0.4;
+  border-radius: 10px;
+  padding-left: 5px;
+  text-align: center;
+  margin-top: 2px; }
+
 .box {
   border: solid;
   padding-top: 20px;
@@ -12,9 +23,9 @@ body {
   background: black;
   opacity: 0.4;
   width: 240px;
-  height: 250px;
-  margin-left: 300px;
-  margin-top: 110px;
+  height: 280px;
+  margin-left: 315px;
+  margin-top: 20px;
   border-radius: 10px;
   padding-left: 5px;
   text-align: center;
@@ -27,8 +38,8 @@ body {
     position: relative; }
 
 .title {
-  margin-top: 120px;
-  margin-left: 300px;
+  margin-top: 155px;
+  margin-left: 330px;
   opacity: 0.8; }
 
 p {
@@ -47,11 +58,11 @@ p {
 @media (max-width: 1170px) and (min-width: 590px) {
   .box {
     position: fixed;
-    margin-top: 110px; }
+    margin-top: 10px; }
 
   p {
     margin-right: 250px;
-    margin-top: 380px;
+    margin-top: 315px;
     float: right; }
 
   .title1, .title2, .title3, .title4, .title5, .title6, .title7 {

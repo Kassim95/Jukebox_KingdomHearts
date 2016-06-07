@@ -2,20 +2,22 @@
 <html>
 <head>
 	<title>Kingdom Box</title>
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 	<script src="js/script.js"></script>
 	<script   src="https://code.jquery.com/ui/1.12.0-rc.2/jquery-ui.js"   integrity="sha256-6HSLgn6Ao3PKc5ci8rwZfb//5QUu3ge2/Sw9KfLuvr8="   crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-<!-- 
-	<input class="theme">
-	<button class="play-theme">play</button> -->
+
+	<input class="theme" placeholder="Enter a title">
+	<button class="play-theme">play</button>
+	<br>
+	<input type="url" class="add-song" placeholder="add url into Kingbox">
+	<button class="adding">add</button>
 	<h3 class="title">1- Kingdom Hearts Main menu Theme</h3>
 	<p class="play-list"> <span class="playlist">Playlist:</span>
 		<br>
-		<span class='title1'>&#10209; Kindom Hearts Main menu Theme</span>
+		<span class='title1'>&#10209; Kingdom Hearts Main menu Theme</span>
 		<br>
 		<span class='title2'>&#10209; darkness of the unknown</span>
 		<br>
@@ -42,8 +44,11 @@
 			<button class="next">&#9658; &#9658;</button>
 			<br>
 			<button class="rand">&#10535; SHUFFLE &#10535;</button>
+			<br>
+			<input id="dur" type="range" name="rng" min="0" step="0.25" max="0" value="0"   style="width: 208px">
+		<h4></h4>
 		</div>
-		<div id="waveform"></div>
+	<!-- 	<div id="waveform"></div> -->
 	</div>
 </body>
 </html>

@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	var i = 0;
 
+
 	function fadeTitle(){
 		
 		$('.title').fadeIn(8000);
@@ -31,28 +32,33 @@ $(document).ready(function(){
 			}else if (i == 5){
 				$('.title').html("6- battleship bravery");
 				fadeTitle();
-			}else{
+			}else if(i == 6){
 				$('.title').html("7- one winged angel from final fantasy VII");
+				fadeTitle();
+			}else{
+				$('.title').html("Your own music");
 				fadeTitle();
 			}
 	};
 	setInterval(function(){ fadeTitle(); }, 8000);
 	fadeTitle();
 
-	var Jukebox = {
+var Jukebox = {
 		son: [new Audio("musics/theme.mp3"),new Audio("musics/darkness-of-the-unknown.mp3"), new Audio("musics/601-showdown-at-hollow-bastion.mp3"), new Audio("musics/604-sacred-moon.mp3"), new Audio("musics/606-riku.mp3"), new Audio("musics/battleship-bravery.mp3"), new Audio("musics/one-winged-angel-from-final-fantasy-vii-.mp3")],
 
+
 		playMusic: function(){
+			var songs = this.son
 		  this.son[i].play();
 		  this.son[i].onended = function() {
-    		i +=1;
+    		i ++;
     		titleCondition();
-    		Jukebox.playMusic();
+    		songs[i].play();
 			};
-		  if(i >= this.son.length - 1){
+		  if(i > this.son.length - 1){
 				this.stopMusic();
 				i = 0; 
-				this.playMusic();
+				songs[i].play();
 			}
 		},
 
@@ -65,7 +71,7 @@ $(document).ready(function(){
 		},
 
 		next: function(){
-			if(i >= this.son.length - 1){
+			if(i >= this.son.length -1 ){
 				this.stopMusic();
 				i = 0; 
 				this.playMusic();
@@ -87,6 +93,7 @@ $(document).ready(function(){
 				this.playMusic();
 			}
 		},
+
 		rand: function(){
 			this.stopMusic();
 			var x = i;
@@ -95,7 +102,34 @@ $(document).ready(function(){
 				i = Math.floor((Math.random() * 6) + 0);
 			}
 			this.playMusic();
+		},
+
+		addSong: function(url){
+			var aud = new Audio(url);
+			this.son.push(aud);
+
+		},
+
+		
+		 mPlay: function(){
+		 	//try atrr({})
+		 	var songs = this.son;
+			$('#dur').attr("max", songs[i].duration);
+			window.setInterval(function(){
+        $('#dur').val(songs[i].currentTime); 
+    //    	var time = songs[i].currentTime;
+				// var minutes = Math.floor(time / 60);   
+				// var seconds = Math.floor(time); 
+				// $("h4").html(minutes + ":"+seconds);
+			}, 250);
+		 
+		},
+
+		mSet: function(){
+			var songs = this.son;
+			songs[i].currentTime = $('#dur').val();
 		}
+	
 		// playSound: function(url){    
 		//  var a = new Audio(url);     
 		//  a.play(); 
@@ -103,9 +137,13 @@ $(document).ready(function(){
 		// }
 
 	};
-		Jukebox.playMusic();
-		fadePlaylist();
 
+		Jukebox.playMusic();
+		Jukebox.mPlay();
+		fadePlaylist();
+		$('#dur').onchange = function(){
+			Jukebox.mSet;
+		}
 		$('.play').click(function(){			
 			Jukebox.playMusic();
 		});
@@ -121,6 +159,7 @@ $(document).ready(function(){
 		$('.next').click(function(){
 			Jukebox.next();
 			titleCondition();
+
 
 		});
 
@@ -205,10 +244,67 @@ $(document).ready(function(){
     	$(".box").css({ opacity: "0.4"} );
 		});
 
+		$(".theme").mouseover(function(){
+    	$(".theme").css({ opacity: "0.6"} );
+		});
+
+		$(".theme").mouseout(function(){
+    	$(".theme").css({ opacity: "0.4"} );
+		});
+
+		$(".play-theme").mouseover(function(){
+    	$(".play-theme").css({ opacity: "0.6"} );
+		});
+
+		$(".play-theme").mouseout(function(){
+    	$(".play-theme").css({ opacity: "0.4"} );
+		});
+
     $(".box").draggable();
 		// $('.options').hide();
 
-		// $('.play-theme').click(function(){
-		// 	new Audio($('.theme').val().toString());
-		// });
+		$('.play-theme').click(function(){
+			if ($('.theme').val().toLowerCase() == "kingdom hearts main menu theme"){
+				Jukebox.stopMusic();
+				i = 0;
+				titleCondition();
+				Jukebox.playMusic();
+			} else if ($('.theme').val().toLowerCase() == "darkness of the unknown"){
+				Jukebox.stopMusic();
+				i = 1;
+				titleCondition();
+				Jukebox.playMusic();
+			} else if ($('.theme').val().toLowerCase() == "showdown at hollow bastion"){
+				Jukebox.stopMusic();
+				i = 2;
+				titleCondition();
+				Jukebox.playMusic();
+			} else if ($('.theme').val().toLowerCase() == "sacred moon"){
+				Jukebox.stopMusic();
+				i = 3;
+				titleCondition();
+				Jukebox.playMusic();
+			}else if ($('.theme').val().toLowerCase() == "riku and kairi"){
+				Jukebox.stopMusic();
+				i = 4;
+				titleCondition();
+				Jukebox.playMusic();
+			}else if ($('.theme').val().toLowerCase() == "battleship bravery"){
+				Jukebox.stopMusic();
+				i = 5;
+				titleCondition();
+				Jukebox.playMusic();
+			}else if ($('.theme').val().toLowerCase() == "one winged angel from final fantasy vii"){
+				Jukebox.stopMusic();
+				i = 6;
+				titleCondition();
+				Jukebox.playMusic();
+			} else{
+				alert("This title is not in the playlist");
+			}			
+		});
+
+	$('.adding').click(function(){
+		Jukebox.addSong($('.add-song').val());
+	});
 });
